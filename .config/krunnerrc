@@ -1,0 +1,5 @@
+[General]
+history=system,fonts,short
+
+[PlasmaRunnerManager]
+LaunchCounts=3 services_systemsettings.desktop,1 services_kcm_fonts.desktop,1 services_keys.desktop
