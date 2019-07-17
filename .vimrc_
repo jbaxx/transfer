@@ -1,0 +1,148 @@
+
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" YouCompleteMe
+Plugin 'Valloric/YouCompleteMe'
+
+" Go completion support
+Plugin 'mdempsky/gocode', {'rtp': 'vim/'}
+
+" Airline - Lightweight Powerline
+Plugin 'vim-airline/vim-airline'
+
+" Airline Themes Plugin
+Plugin 'vim-airline/vim-airline-themes'
+
+" Install Nord Theme from ArticStudio :O:O:D:D:D:O:O
+Plugin 'arcticicestudio/nord-vim'
+
+" Install colorschemes
+Plugin 'flrnprz/candid.vim'
+Plugin 'lithammer/vim-eighties'
+Plugin 'dracula/vim'
+Plugin 'kaicataldo/material.vim'
+Plugin 'chriskempson/base16-vim'
+" Plugin 'mhartington/oceanic-next'
+Plugin 'jbaxx/oceanic-next'
+Plugin 'jacoborus/tender.vim'
+
+" Install NerdTREE - File Browsing
+Plugin 'scrooloose/nerdtree'
+
+"Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+
+Plugin 'tpope/vim-fugitive'
+
+" My own plugins
+Plugin 'jbaxx/reciprocal'
+
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+" Put your non-Plugin stuff after this line
+
+syntax on
+
+" set linespace=0
+set hlsearch " Highlight all search results
+set incsearch " Highlight dynamically word input on search bar
+
+set ignorecase " Searches case insensitive
+set smartcase  " If search contains at least an uppercase set ignorecase not enforced
+
+set encoding=utf-8 " Encoding
+
+set nu " Line numbering + rnu shows current line num on top instead of 0
+set rnu " Relative line numbering
+
+set splitbelow " For sp split below to current file
+set splitright " For vs split right to current file
+
+set wildmenu " Enables menu completion for Ex Commands
+set wildmode=list,full " Lists all matches no completes, then browses through each full match
+
+set expandtab
+set tabstop=4
+set shiftwidth=4
+
+set modelines=0
+set nomodeline
+
+" Show operator in Operator-Pending Mode
+set showcmd
+
+set list lcs=trail:·,tab:»·
+":set listchars=space:␣,tab:>· list
+"
+"colorscheme Nord
+
+let mapleader=","
+
+nnoremap <leader>j 5j
+" nnoremap <leader>r :set rnu!<CR>
+
+"set guifont=Noto\ Mono\ for\ Powerline "Meslo\ LG\ M\ DZ\ Regular\ for\ Powerline
+"set guifont=Monaco\ for\ Powerline:h23
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_theme='nord' " Set Nord for Airline Theme :D:D:D:D
+"let g:airline_powerline_fonts = 1
+
+"let g:airline#extensions#whitespace#mixed_indent_algo = 1
+"let airline#extensions#default#section_use_groupitems = 1 
+
+" Unbinding Arrow Keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+"#####EXPERIMENTAL######
+"
+" Remap Backspace to NOP to force use ctrl+w
+inoremap <BS> <NOP>
+nnoremap <leader>re :vsplit $MYVIMRC<CR>
+nnoremap <leader>rs :source $MYVIMRC<CR>
+nnoremap <leader>bq Bi`<esc>Ea`<esc>
+inoremap <C-b> <esc>Bi`<esc>Ea`
+" inoremap kj <esc>
+" ######################
+
+map <C-n> :NERDTreeToggle<CR>
+
+" Python
+let python_highlight_all=1
+
+" clangd path for you complete me
+let g:ycm_clangd_binary_path = "/usr/local/opt/llvm/bin/clangd"
+
+
+" powerline symbols
+let g:airline_symbols.branch = ''
+"let g:airline_symbols.readonly = ''
+
+
+nnoremap <silent> <leader>- :exe "vertical resize " . (winwidth(0) * 20/19)<cr>
+nnoremap <silent> <leader>= :exe "vertical resize " . (winwidth(0) * 19/20)<cr>
